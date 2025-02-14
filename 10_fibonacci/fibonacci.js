@@ -1,5 +1,23 @@
-const fibonacci = function() {
+const fibonacci = function(sequence) {
+    let count;
+    if(typeof sequence !== 'number') {
+        count = parseInt(sequence);
+    } else {
+        count = sequence;
+    }
 
+    if (count < 0) return 'OOPS';
+    if (count == 0) return 0;
+
+    let firstPrev = 1;
+    let secondPrev = 0;
+
+    for (let i = 2; i <= count; i++) {
+        let current = firstPrev + secondPrev;
+        secondPrev = firstPrev;
+        firstPrev = secondPrev;
+    }
+    return firstPrev;
 };
 
 // Do not edit below this line
